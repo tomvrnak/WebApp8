@@ -1,0 +1,84 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="WebApplication8.Site1" %>
+
+<!DOCTYPE html>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server"><script src="Scripts/jquery-2.1.4.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="StyleSheet1.css">
+    <script>//   $(document).ready(function () {
+//$("#btnSetFont").click(function (evt) {
+//var target = $("#txtTarget").val();
+//var fontName=$("#txtFontName").val();
+//var fontSize=$("#txtFontSize").val();
+//$(target).css("font-family", fontName).css("font-size", fontSize);
+//evt.preventDefault();
+//});
+//});
+
+        $(document).ready(function () {
+            $("#btnSetFont2").click(function (evt) {
+                var target = $("#DropDownList1").val();
+                var index = $("#TextBox1").val();
+                $(".Highlight").removeClass("Highlight");
+                switch (target) {
+                    case "FR":
+                        $("tr:first").addClass("Highlight");
+                        break;
+                    case "LR":
+                        $("tr:last").addClass("Highlight");
+                        break;
+                    case "OD":
+                        $("tr:odd").addClass("Highlight");
+                        break;
+                    case "EV":
+                        $("tr:even").addClass("Highlight");
+                        break;
+                    case "LT":
+                        $("tr:lt(" + index + ")").addClass("Highlight");
+                        break;
+                    case "GT":
+                        $("tr:gt(" + index + ")").addClass("Highlight");
+                        break;
+                    case "EQ":
+                        $("tr:eq(" + index + ")").addClass("Highlight");
+                        break;
+                }
+                evt.preventDefault();
+            });
+        });
+
+    </script>
+ 
+
+
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <link rel="stylesheet" type="text/css" href="StyleSheet1.css"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <link rel="stylesheet" type="text/css" href="StyleSheet1.css"></asp:ContentPlaceHolder>
+    </div>
+        <% int yd=8;
+        string hy = "asdf";
+        //la
+        %>
+     
+
+        <asp:DropDownList ID="DropDownList1" runat="server">
+            <asp:ListItem Value="A">All Downloads</asp:ListItem>
+            <asp:ListItem Value="P">Products</asp:ListItem>
+            <asp:ListItem Value="WP">White Papers</asp:ListItem>
+            <asp:ListItem Value="C">Components</asp:ListItem></asp:DropDownList>
+        <asp:Button ID="btnSetFont2" runat="server" Text="Set Font" />
+            
+ 
+       
+    </form>
+
+</body>
+</html>
