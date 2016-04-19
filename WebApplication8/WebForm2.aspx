@@ -13,6 +13,8 @@
     {
         $("#Button7").click(function (evt)
         {
+            //test here
+            //This change was made on the HP laptop at honme!
             var font = $("#TextBox5").val();
             var fontSize = $("#TextBox6").val();
             var foreColor = $("#DropDownList1").val();
